@@ -1,0 +1,49 @@
+{
+  "name": "goticas-y-pies",
+  "version": "2.0.0",
+  "description": "Catálogo web moderno para perfiles exclusivos +18 con diseño gótico elegante",
+  "type": "module",
+  "private": true,
+  "author": "MMORPG - MSC",
+  "license": "PROPRIETARY",
+  "keywords": [
+    "catalog",
+    "gothic",
+    "adult",
+    "fetish",
+    "responsive",
+    "vanilla-js"
+  ],
+  "scripts": {
+    "serve": "python -m http.server 8000",
+    "serve:node": "http-server",
+    "serve:node-secure": "http-server -S -C cert.pem -K key.pem -p 8443",
+    "build": "npm run minify:css && npm run minify:js",
+    "minify:css": "csso css/styles.css --output dist/styles.min.css",
+    "minify:js": "terser js/app.js js/persona.js js/router.js js/modal.js js/search.js js/loadData.js js/cookies.js -c -m -o dist/app.min.js",
+    "optimize:images": "node scripts/optimize-images.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint js/ --fix",
+    "prebuild": "mkdir -p dist"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "terser": "^5.20.0",
+    "csso-cli": "^5.0.0",
+    "jest": "^29.5.0",
+    "eslint": "^8.42.0",
+    "imagemin": "^8.0.1",
+    "imagemin-webp": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/goticas-y-pies"
+  },
+  "homepage": "http://localhost:8000",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

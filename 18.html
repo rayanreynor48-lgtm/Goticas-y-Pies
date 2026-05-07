@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificación de Edad — Goticas y Pies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --negro: #080808;
+      --morado-oscuro: #1a0a2e;
+      --morado: #6b21a8;
+      --morado-vivo: #a855f7;
+      --rojo: #7f1d1d;
+      --rojo-vivo: #ef4444;
+      --gris: #d1d5db;
+      --blanco: #f8f4ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--negro);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Crimson Pro', serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated background */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(107,33,168,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 70%, rgba(127,29,29,0.18) 0%, transparent 60%),
+        var(--negro);
+      z-index: 0;
+    }
+
+    .pentagram {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.04;
+      z-index: 0;
+      animation: slowRotate 60s linear infinite;
+    }
+
+    @keyframes slowRotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--morado-vivo);
+      border-radius: 50%;
+      animation: float linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.4; }
+      100% { transform: translateY(-10vh) translateX(var(--drift)); opacity: 0; }
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(145deg, rgba(26,10,46,0.97) 0%, rgba(8,8,8,0.99) 100%);
+      border: 1px solid rgba(168,85,247,0.25);
+      border-radius: 4px;
+      padding: 56px 52px 48px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(168,85,247,0.08),
+        0 0 60px rgba(107,33,168,0.2),
+        0 0 120px rgba(127,29,29,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+      animation: cardIn 0.8s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,85,247,0.6), transparent);
+    }
+
+    .warning-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(239,68,68,0.5));
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 12px rgba(239,68,68,0.5)); }
+      50% { transform: scale(1.06); filter: drop-shadow(0 0 20px rgba(239,68,68,0.8)); }
+    }
+
+    .brand {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--morado-vivo);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      opacity: 0.85;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--blanco);
+      line-height: 1.2;
+      margin-bottom: 6px;
+      text-shadow: 0 0 30px rgba(168,85,247,0.3);
+    }
+
+    .age-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--rojo) 0%, #991b1b 100%);
+      color: white;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(239,68,68,0.4);
+      box-shadow: 0 0 20px rgba(239,68,68,0.3);
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,85,247,0.5), transparent);
+      margin: 0 auto 28px;
+    }
+
+    .warning-text {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(209,213,219,0.75);
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+
+    .warning-text strong {
+      color: rgba(209,213,219,0.95);
+      font-weight: 400;
+    }
+
+    .legal {
+      font-size: 0.78rem;
+      color: rgba(209,213,219,0.4);
+      line-height: 1.6;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    .btn-enter {
+      display: inline-block;
+      width: 100%;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #6b21a8 0%, #7f1d1d 100%);
+      color: var(--blanco);
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(107,33,168,0.4);
+      margin-bottom: 14px;
+    }
+
+    .btn-enter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #7c3aed 0%, #991b1b 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .btn-enter:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,33,168,0.6); }
+    .btn-enter:hover::before { opacity: 1; }
+    .btn-enter:active { transform: translateY(0); }
+    .btn-enter span { position: relative; z-index: 1; }
+
+    .btn-leave {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 32px;
+      background: transparent;
+      color: rgba(209,213,219,0.4);
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(209,213,219,0.1);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-leave:hover {
+      color: rgba(209,213,219,0.7);
+      border-color: rgba(209,213,219,0.25);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .ornament {
+      position: absolute;
+      color: rgba(168,85,247,0.15);
+      font-size: 4rem;
+      pointer-events: none;
+      font-family: serif;
+    }
+    .ornament-tl { top: 12px; left: 18px; }
+    .ornament-br { bottom: 12px; right: 18px; transform: rotate(180deg); }
+  </style>
+</head>
+<body>
+
+  <div class="bg-layer"></div>
+
+  <!-- Rotating pentagram SVG -->
+  <svg class="pentagram" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="100,5 129,88 218,88 148,143 173,226 100,175 27,226 52,143 -18,88 71,88"
+      stroke="white" stroke-width="1.5" fill="none"/>
+    <circle cx="100" cy="100" r="95" stroke="white" stroke-width="1" fill="none"/>
+  </svg>
+
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+
+  <div class="card">
+    <span class="ornament ornament-tl">❧</span>
+    <span class="ornament ornament-br">❧</span>
+
+    <span class="warning-icon">⚠️</span>
+    <div class="brand">Goticas y Pies</div>
+    <h1>Contenido</h1>
+    <div class="age-badge">+18</div>
+    <div class="divider"></div>
+
+    <p class="warning-text">
+      Este sitio contiene <strong>material de adultos</strong>.<br/>
+      Al ingresar confirmas que tienes <strong>18 años o más</strong>
+      y que es legal en tu jurisdicción acceder a este tipo de contenido.
+    </p>
+
+    <p class="legal">
+      Al hacer clic en "Entrar" declaras bajo tu responsabilidad ser mayor de edad
+      y aceptas los términos de uso del sitio. Este sitio no se hace responsable
+      del uso indebido por parte de menores de edad.
+    </p>
+
+    <button class="btn-enter" onclick="confirmarEdad()">
+      <span>⚰ Entrar al sitio ⚰</span>
+    </button>
+    <a href="https://google.com" class="btn-leave">No, salir del sitio</a>
+  </div>
+
+  <script>
+    // Particles
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 25; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.cssText = `
+        left: ${Math.random() * 100}%;
+        --drift: ${(Math.random() - 0.5) * 100}px;
+        animation-duration: ${8 + Math.random() * 12}s;
+        animation-delay: ${Math.random() * 10}s;
+        width: ${1 + Math.random() * 2}px;
+        height: ${1 + Math.random() * 2}px;
+        background: ${Math.random() > 0.5 ? '#a855f7' : '#ef4444'};
+      `;
+      container.appendChild(p);
+    }
+
+    /**
+     * FIX WEEK 1: Validar que redirect sea URL interna (evitar Open Redirect)
+     */
+    function isInternalURL(url) {
+      if (!url) return false;
+      return url.startsWith('/') || url === 'index.html' || url === './index.html';
+    }
+
+    function confirmarEdad() {
+      // FIX: Solo localStorage, eliminado sessionStorage (vulnerable en múltiples pestañas)
+      const now = Date.now();
+      localStorage.setItem('gy_age_confirmed', 'true');
+      localStorage.setItem('gy_age_timestamp', now);
+      
+      // FIX: Validar URL de redirect para evitar Open Redirect
+      const redirectParam = new URLSearchParams(window.location.search).get('redirect') || '';
+      const redirect = isInternalURL(redirectParam) ? redirectParam : 'index.html';
+      window.location.href = redirect;
+    }
+
+    // Verificar si ya está verificado
+    function isAgeVerified() {
+      const stored = localStorage.getItem('gy_age_confirmed') === 'true';
+      if (!stored) return false;
+      
+      // Validar timestamp (máximo 30 días)
+      const ts = parseInt(localStorage.getItem('gy_age_timestamp') || 0);
+      const thirtyDaysMs = 30 * 24 * 60 * 60 * 1000;
+      if (Date.now() - ts > thirtyDaysMs) {
+        // Expiró, pedir verificación nuevamente
+        localStorage.removeItem('gy_age_confirmed');
+        localStorage.removeItem('gy_age_timestamp');
+        return false;
+      }
+      
+      return stored;
+    }
+
+    // Si ya está verificado, redirigir inmediatamente
+    if (isAgeVerified()) {
+      const redirectParam = new URLSearchParams(window.location.search).get('redirect') || '';
+      const redirect = isInternalURL(redirectParam) ? redirectParam : 'index.html';
+      window.location.href = redirect;
+    }
+  </script>
+</body>
+</html>

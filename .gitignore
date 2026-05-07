@@ -1,0 +1,67 @@
+# Environment
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+assets/personas-optimized/
+/coverage/
+/.nyc_output/
+
+# SSL/HTTPS
+*.pem
+*.key
+cert.pem
+key.pem
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Build & Distribution
+dist/
+build/
+.next/
+out/
+
+# OS Files
+.DS_Store
+.AppleDouble
+.LSOverride
+*.exe
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Asset backups (local edits)
+assets/personas/*/backup/
+assets/personas/*/.old/
+
+# Admin/Private
+admin/
+private/
+.secrets/
+config/private.json
+
+# Analytics & Monitoring (if added)
+analytics/
+sentry/
+
+# Local development overrides
+local.config.js
+personal-data.json

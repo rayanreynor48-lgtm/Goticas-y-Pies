@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Perfil — Goticas y Pies</title>
+  <meta name="description" content="Perfil exclusivo +18 en el catálogo de Goticas y Pies."/>
+  <meta name="robots" content="noindex,nofollow"/>
+  <meta property="og:type" content="profile"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-logo"><a href="index.html">⚰ Goticas &amp; Pies</a></div>
+    <div class="nav-right">
+      <a href="index.html" id="btnBack" class="btn-back">← Volver</a>
+    </div>
+  </nav>
+
+  <!-- Contenido inyectado por persona.js -->
+  <div id="personaRoot">
+    <div class="loader" style="padding:120px 0"><div class="loader-ring"></div></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#" data-legal="privacidad">Privacidad</a>
+      <a href="#" data-legal="terminos">Términos de uso</a>
+      <a href="#" data-legal="seguridad">Seguridad</a>
+      <a href="#" data-legal="cookies">Cookies</a>
+      <a href="18.html">Verificación +18</a>
+    </div>
+    <p>⚰ Goticas &amp; Pies · Solo para adultos +18</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightboxOverlay" class="lightbox-overlay" role="dialog" aria-modal="true">
+    <img id="lightboxImg" class="lightbox-img" src="" alt="Imagen ampliada"/>
+    <button id="lightboxClose" class="lightbox-close" aria-label="Cerrar">✕</button>
+  </div>
+
+  <!-- Legal modal -->
+  <div id="legalOverlay" class="legal-overlay" role="dialog" aria-modal="true">
+    <div class="legal-modal"></div>
+  </div>
+
+  <!-- Cookie banner -->
+  <div id="cookieBanner" class="cookie-banner" role="region">
+    <p class="cookie-text">
+      Usamos cookies esenciales para verificación de edad y funcionalidad básica.
+      <a href="#" data-legal="cookies">Configurar preferencias</a>
+    </p>
+    <div class="cookie-actions">
+      <button class="btn-cookie btn-cookie-accept">Aceptar</button>
+      <button class="btn-cookie btn-cookie-config">Configurar</button>
+      <button class="btn-cookie btn-cookie-reject">Rechazar</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/persona.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+      navigator.serviceWorker.register('js/sw.js', { scope: '/' })
+        .then(reg => console.log('✓ Service Worker registered'))
+        .catch(err => console.warn('⚠️ Service Worker registration failed:', err));
+    }
+  </script>
+</body>
+</html>

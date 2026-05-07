@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Goticas y Pies — Catálogo</title>
+  <meta name="description" content="Catálogo exclusivo +18 de perfiles góticas y fetish. Verifica tu edad para acceder."/>
+  <meta name="robots" content="noindex,nofollow"/>
+  <meta property="og:title" content="Goticas y Pies — Catálogo +18"/>
+  <meta property="og:description" content="Catálogo exclusivo +18 de perfiles góticas y fetish."/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-logo"><a href="index.html">⚰ Goticas &amp; Pies</a></div>
+    <div class="nav-right">
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="searchInput" placeholder="Buscar…" autocomplete="off" spellcheck="false" aria-label="Buscar perfiles"/>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Filters -->
+  <div id="filterBar" class="filter-bar" role="group" aria-label="Filtros"></div>
+
+  <!-- Grid -->
+  <main class="main">
+    <p id="resultInfo" class="results-info"></p>
+    <div id="grid" role="list"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#" data-legal="privacidad">Privacidad</a>
+      <a href="#" data-legal="terminos">Términos de uso</a>
+      <a href="#" data-legal="seguridad">Seguridad</a>
+      <a href="#" data-legal="cookies">Cookies</a>
+      <a href="18.html">Verificación +18</a>
+    </div>
+    <p>⚰ Goticas &amp; Pies · Solo para adultos +18</p>
+  </footer>
+
+  <!-- ══ MODAL preview ═══════════════════════════════════════
+       SOLO muestra: banner, avatar, nombre, tags, botón perfil.
+       SIN galería ni videos.
+  ══════════════════════════════════════════════════════════ -->
+  <div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal">
+      <!-- Banner -->
+      <div class="modal-banner"></div>
+      <!-- Avatar sobre el banner -->
+      <div class="modal-avatar-wrap"></div>
+      <!-- Info -->
+      <div class="modal-body">
+        <h2 class="modal-name"></h2>
+        <div class="modal-user"></div>
+        <div class="modal-stats"></div>
+        <div class="modal-tags"></div>
+        <button class="btn-ver-perfil"><span>⚰ Ver perfil completo ⚰</span></button>
+      </div>
+      <button id="modalClose" class="modal-close" aria-label="Cerrar">✕</button>
+    </div>
+  </div>
+
+  <!-- ══ LEGAL MODAL ════════════════════════════════════════ -->
+  <div id="legalOverlay" class="legal-overlay" role="dialog" aria-modal="true">
+    <div class="legal-modal"><!-- inyectado por cookies.js --></div>
+  </div>
+
+  <!-- ══ COOKIE BANNER ════════════════════════════════════ -->
+  <div id="cookieBanner" class="cookie-banner" role="region" aria-label="Aviso de cookies">
+    <p class="cookie-text">
+      Usamos cookies esenciales para verificación de edad y funcionalidad básica.
+      <a href="#" data-legal="cookies">Configurar preferencias</a>
+    </p>
+    <div class="cookie-actions">
+      <button class="btn-cookie btn-cookie-accept">Aceptar</button>
+      <button class="btn-cookie btn-cookie-config">Configurar</button>
+      <button class="btn-cookie btn-cookie-reject">Rechazar</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+      navigator.serviceWorker.register('js/sw.js', { scope: '/' })
+        .then(reg => {
+          console.log('✓ Service Worker registered:', reg.scope);
+          
+          // Notificar updates
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('ℹ️ Service Worker update available');
+                // Mostrar notificación de update
+                if (confirm('Actualización disponible. ¿Recargar?')) {
+                  newWorker.postMessage({ type: 'SKIP_WAITING' });
+                  window.location.reload();
+                }
+              }
+            });
+          });
+        })
+        .catch(err => console.warn('⚠️ Service Worker registration failed:', err));
+    } else if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+      console.log('ℹ️ Service Worker requires HTTPS (or localhost for dev)');
+    }
+  </script>
+</body>
+</html>
