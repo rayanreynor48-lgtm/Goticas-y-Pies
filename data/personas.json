@@ -84,5 +84,36 @@
     ],
     "videos": [],
     "links": {}
+  },
+  {
+    "id": "allie_robertson",
+    "nombre": "Allie Robertson",
+    "verificado": true,
+    "usuario": "@allie_robertson",
+    "seguidores": "74K",
+    "seguidos": "0k",
+    "tags": ["gotica", "slim", "long-legs", "fashion", "busty", "plus-size", "curvy", "feet-focus", "model", "glutes"],
+    "descripcion": "Hello 👋 im back\nCreadora digital",
+    "avatar": "assets/personas/allie_robertson/avatar.jpg",
+    "banner": "assets/personas/allie_robertson/banner.jpg",
+    "preview": "assets/personas/allie_robertson/img1.jpg",
+    "imagenes": [
+      "assets/personas/allie_robertson/img1.jpg",
+      "assets/personas/allie_robertson/img2.jpg",
+      "assets/personas/allie_robertson/img3.jpg",
+      "assets/personas/allie_robertson/img4.jpg",
+      "assets/personas/allie_robertson/img5.jpg",
+      "assets/personas/allie_robertson/img6.jpg",
+      "assets/personas/allie_robertson/img7.jpg"
+    ],
+    "videos": [
+      "assets/personas/allie_robertson/video1.mp4",
+      "assets/personas/allie_robertson/video2.mp4",
+      "assets/personas/allie_robertson/video3.mp4",
+      "assets/personas/allie_robertson/video4.mp4",
+      "assets/personas/allie_robertson/video5.mp4",
+      "assets/personas/allie_robertson/video6.mp4"
+    ],
+    "links": {}
   }
 ]
