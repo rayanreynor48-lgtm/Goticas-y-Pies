@@ -22,6 +22,27 @@
     "links": {}
   },
   {
+    "id": "eli_ludwig",
+    "nombre": "Eli Ludwig",
+    "verificado": true,
+    "usuario": "@eli_ludwig",
+    "seguidores": "13K",
+    "seguidos": "0k",
+    "tags": ["cosplay", "anime", "gotica", "slim", "long-legs", "fashion", "busty", "plus-size", "curvy", "feet-focus", "model", "fantasy-style", "glutes"],
+    "descripcion": "Your guardian angel! You know where fine me 🥰\nCreadora digital",
+    "avatar": "assets/personas/eli_ludwig/avatar.jpg",
+    "banner": "assets/personas/eli_ludwig/banner.jpg",
+    "preview": "assets/personas/eli_ludwig/img1.jpg",
+    "imagenes": [],
+    "videos": [
+      "assets/personas/eli_ludwig/video1.mp4",
+      "assets/personas/eli_ludwig/video2.mp4",
+      "assets/personas/eli_ludwig/video3.mp4",
+      "assets/personas/eli_ludwig/video4.mp4"
+    ],
+    "links": {}
+  }
+  {
     "id": "wdna_ii",
     "nombre": "Wdna II",
     "verificado": true,
