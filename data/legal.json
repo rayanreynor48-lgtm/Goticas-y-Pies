@@ -1,0 +1,102 @@
+{
+  "privacidad": {
+    "titulo": "Política de Privacidad",
+    "fecha": "2025",
+    "contenido": [
+      {
+        "seccion": "1. Información que recopilamos",
+        "texto": "Este sitio no recopila datos personales de los usuarios. No utilizamos formularios de registro ni sistemas de autenticación. Toda la información almacenada reside únicamente en tu dispositivo mediante localStorage."
+      },
+      {
+        "seccion": "2. Cookies y almacenamiento local",
+        "texto": "Utilizamos localStorage para guardar exclusivamente: (a) la confirmación de mayoría de edad (+18), y (b) tus preferencias de cookies. No se utilizan cookies de rastreo ni de terceros sin tu consentimiento explícito."
+      },
+      {
+        "seccion": "3. Contenido de terceros",
+        "texto": "Los perfiles pueden contener enlaces a redes sociales externas (Instagram, etc.). Al hacer clic en esos enlaces, abandonas este sitio y quedarás sujeto a las políticas de privacidad de dichas plataformas."
+      },
+      {
+        "seccion": "4. Menores de edad",
+        "texto": "Este sitio está estrictamente prohibido para personas menores de 18 años. Si eres menor de edad, abandona el sitio de inmediato."
+      },
+      {
+        "seccion": "5. Contacto",
+        "texto": "Para cualquier consulta relacionada con privacidad, puedes contactarnos a través de los canales indicados en el sitio."
+      }
+    ]
+  },
+  "terminos": {
+    "titulo": "Términos de Uso",
+    "fecha": "2025",
+    "contenido": [
+      {
+        "seccion": "1. Aceptación de términos",
+        "texto": "Al acceder a este sitio confirmas que tienes 18 años o más y aceptas estos términos en su totalidad. Si no estás de acuerdo, debes abandonar el sitio inmediatamente."
+      },
+      {
+        "seccion": "2. Contenido para adultos",
+        "texto": "Este sitio contiene material de naturaleza adulta (+18). El acceso está permitido únicamente en jurisdicciones donde dicho contenido sea legal. El usuario es responsable de verificar la legalidad en su región."
+      },
+      {
+        "seccion": "3. Uso permitido",
+        "texto": "El contenido de este sitio es de uso personal y no comercial. Está prohibida la reproducción, distribución o modificación de cualquier contenido sin autorización expresa."
+      },
+      {
+        "seccion": "4. Propiedad intelectual",
+        "texto": "Todo el contenido (fotografías, videos, textos) pertenece a sus respectivos creadores. Cualquier uso no autorizado constituye una infracción de los derechos de propiedad intelectual."
+      },
+      {
+        "seccion": "5. Limitación de responsabilidad",
+        "texto": "El sitio no se responsabiliza por el uso indebido del contenido ni por daños derivados del acceso al mismo. El uso es bajo la entera responsabilidad del usuario."
+      }
+    ]
+  },
+  "seguridad": {
+    "titulo": "Política de Seguridad",
+    "fecha": "2025",
+    "contenido": [
+      {
+        "seccion": "1. Protección de datos",
+        "texto": "Este sitio no almacena contraseñas ni datos sensibles en servidores. Todo el almacenamiento es local (localStorage en tu navegador) y nunca se transmite a terceros."
+      },
+      {
+        "seccion": "2. Comunicaciones seguras",
+        "texto": "Recomendamos acceder siempre desde conexiones seguras (HTTPS). No compartas información personal a través de canales no seguros."
+      },
+      {
+        "seccion": "3. Vulnerabilidades",
+        "texto": "Si detectas alguna vulnerabilidad de seguridad, contáctanos de inmediato. Trabajamos para mantener el sitio seguro y actualizado."
+      },
+      {
+        "seccion": "4. Contenido de usuarios",
+        "texto": "No recopilamos contenido generado por usuarios. El sitio es de carácter estático y de solo lectura para los visitantes."
+      }
+    ]
+  },
+  "cookies": {
+    "titulo": "Configuración de Cookies",
+    "tipos": [
+      {
+        "id": "esenciales",
+        "nombre": "Cookies esenciales",
+        "descripcion": "Necesarias para el funcionamiento básico del sitio. Incluyen la verificación de edad (+18) y preferencias de cookies. No se pueden desactivar.",
+        "obligatoria": true,
+        "ejemplos": ["gy_age_confirmed", "gy_cookie_consent"]
+      },
+      {
+        "id": "funcionales",
+        "nombre": "Cookies funcionales",
+        "descripcion": "Permiten recordar preferencias como el tema visual o el último perfil visitado. Mejoran tu experiencia sin rastrearte.",
+        "obligatoria": false,
+        "ejemplos": ["gy_last_visit", "gy_theme"]
+      },
+      {
+        "id": "analiticas",
+        "nombre": "Cookies analíticas",
+        "descripcion": "Actualmente no utilizamos ningún servicio de analítica. Si esto cambia, te lo informaremos y solicitaremos tu consentimiento.",
+        "obligatoria": false,
+        "ejemplos": []
+      }
+    ]
+  }
+}
